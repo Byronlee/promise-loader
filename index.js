@@ -15,7 +15,7 @@ module.exports.pitch = function (remainingRequest) {
   var filename = path.basename(remainingRequest);
   var name = path.basename(remainingRequest, path.extname(filename));
   
-  bundleName = bundleName.replace(/\[filename\]/g, filename).replace(/\[name\]/g, name);
+  bundleName = bundleName.replace(/\[filename\]/g, filename).replace(/\[name\]/g, name) || name;
 
   if (!promiseLib) {
     throw new Error('You need to specify your Promise library of choice, e.g. require("promise?bluebird!./file.js")');
